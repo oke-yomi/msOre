@@ -1,5 +1,6 @@
 "use client";
 
+import Faqs from "@/components/Faqs";
 import FlexWrapper from "@/components/FlexWrapper";
 import Hero from "@/components/Hero";
 import Testimonials from "@/components/Testimonials";
@@ -55,7 +56,7 @@ export default function Home() {
               src="/images/phone-image.png"
               width={600}
               height={340}
-              alt="bg"
+              alt="image"
             />
           </div>
         </div>
@@ -95,9 +96,78 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="">
+      <Faqs faqs={faqs} />
 
+      <section className="px-8 2md:px-24 2md:py-14 py-16 overflow-hidden">
+        <div className="w-full  ">
+          <div className="text-center mb-10 max-w-3xl mx-auto">
+            <h3 className="font-bold text-[40px] 2md:text-[56px] 2md:mb-6 mb-4 leading-none tracking-tighter px-9">
+              Take your Finances Global with Sabo
+            </h3>
+
+            <p className="text-custom-textgray text-sm 2md:text-lg mb-7">
+              A payment platform built by africans for africans in the diaspora
+              to send money to their loved ones or paying bills back at home.
+            </p>
+
+            <button>Download now</button>
+          </div>
+
+          <div className="hidden 2md:block w-full h-[760px] relative">
+            <Image
+              src="/images/phone-bg.png"
+              width={1400}
+              height={477}
+              alt=""
+              className="absolute bottom-0 left-0 right-0"
+            />
+            <Image
+              src="/images/phone.png"
+              width={400}
+              height={800}
+              alt=""
+              className="absolute top-36 left-1/2 translate-x-[-50%]"
+            />
+          </div>
+          <div className="block 2md:hidden relative w-full h-[437px]">
+            <Image
+              src="/images/phone.png"
+              width={234}
+              height={457}
+              alt=""
+              className="mx-auto absolute top-20 left-1/2 translate-x-[-50%]"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#f2f2f2]">
+        <div className=""></div>
+        <div className=""></div>
       </section>
     </div>
   );
 }
+
+const faqs = [
+  {
+    question: "How does Sabo work",
+    answer:
+      "A payment platform built by africans for africans in the diaspora facing the challenges of sending money to their loved ones or paying bills back at home.",
+  },
+  {
+    question: "How does Sabo work",
+    answer:
+      "A payment platform built by africans for africans in the diaspora facing the challenges of sending money to their loved ones or paying bills back at home.",
+  },
+  {
+    question: "How does Sabo work",
+    answer:
+      "A payment platform built by africans for africans in the diaspora facing the challenges of sending money to their loved ones or paying bills back at home.",
+  },
+  {
+    question: "How does Sabo work",
+    answer:
+      "A payment platform built by africans for africans in the diaspora facing the challenges of sending money to their loved ones or paying bills back at home.",
+  },
+];
