@@ -24,7 +24,7 @@ const Faqs = ({ faqs }: AccordionProps) => {
       <div className="w-full max-w-3xl mx-auto">
         <div className="text-center mb-16">
           <h3 className="font-bold text-[40px] 2md:text-5xl mb-6 leading-none tracking-tighter px-9">
-            We give precedence to your financial security
+            Your money questions, answered here.
           </h3>
 
           <p className="text-custom-textgray text-sm 2md:text-xl">

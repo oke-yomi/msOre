@@ -9,16 +9,12 @@ import Image from "next/image";
 const Navbar = () => {
   const [navbar, setNavbar] = useState(false);
 
-  const handleDownload = () => {
-    setNavbar(!navbar);
-  };
-
   return (
     <div className="">
       <nav className="w-full max-w-[1440px] bg-white fixed top-0 left-2/4 translate-x-[-50%] z-50">
         <div className="justify-between px-8 mx-auto  2md:items-center 2md:flex 2md:px-24">
           <div>
-            <div className="flex items-center justify-between py-6 2md:py-11 2md:block">
+            <div className="flex items-center justify-between py-6 2md:pt-10 2md:pb-7 2md:block">
               {/* Logo */}
               <Link href="/" as="image">
                 <Image
@@ -53,49 +49,25 @@ const Navbar = () => {
               }`}
             >
               <ul className="h-screen 2md:h-auto items-center justify-center 2md:flex">
-                {/* download */}
-                <li className="text-custom-gray py-2 2md:px-6 text-center 2md:hover:text-green-600  pb-2 2md:pb-0 transition delay-150 duration-300 ease-in hover:-translate-y-1 hover:text-custom-green hover:font-medium">
-                  <Link
-                    href="http://theinsync.substack.com"
-                    onClick={() => setNavbar(!navbar)}
-                    target="_blank"
-                    className="hover:border-b-2 2md:hover:border-b-0 border-custom-green"
-                  >
-                    Blog
-                  </Link>
+                <li className="">
+                  <button>Products</button>
                 </li>
-                {/* blog */}
-                <li className="text-custom-gray py-2 2md:px-6 text-center 2md:hover:text-green-600  pb-2 2md:pb-0 transition delay-150 duration-300 ease-in hover:-translate-y-1 hover:text-custom-green hover:font-medium">
+                {/* help */}
+                <li className="text-custom-neutral py-2 2md:px-[18px] text-center 2md:hover:text-green-600 pb-2 2md:pb-0 hover:text-custom-green">
                   <Link
-                    href="http://theinsync.substack.com"
-                    onClick={() => setNavbar(!navbar)}
-                    target="_blank"
-                    className="hover:border-b-2 2md:hover:border-b-0 border-custom-green"
-                  >
-                    Blog
-                  </Link>
-                </li>
-                {/* contact */}
-                <li className="text-custom-gray py-2 2md:px-6 text-center 2md:hover:text-green-600  pb-2 2md:pb-0 transition delay-150 duration-300 ease-in hover:-translate-y-1 hover:text-custom-green hover:font-medium">
-                  <Link
-                    href="#contact"
+                    href=""
                     onClick={() => setNavbar(!navbar)}
                     className="hover:border-b-2 2md:hover:border-b-0 border-custom-green"
                   >
-                    Contact Us
+                    Help
                   </Link>
-                </li>
-                {/* language */}
-                <li className="flex items-center 2md:items-start justify-center">
-                  <button className="flex items-start justify-center text-[#838383] bg-gray-100 p-2 rounded-xl text-center">
-                    EN
-                    <RxCaretDown color="#838383" />
-                  </button>
                 </li>
               </ul>
             </div>
           </div>
         </div>
+
+        <div className="w-full h-7 border-2 border-red-500"></div>
       </nav>
     </div>
   );

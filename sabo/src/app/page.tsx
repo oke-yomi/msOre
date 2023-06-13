@@ -2,6 +2,7 @@
 
 import Faqs from "@/components/Faqs";
 import FlexWrapper from "@/components/FlexWrapper";
+import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Testimonials from "@/components/Testimonials";
 import { SaboDetails, SaboSecurity } from "@/components/data";
@@ -141,10 +142,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-[#f2f2f2]">
-        <div className=""></div>
-        <div className=""></div>
-      </section>
+      <Footer />
     </div>
   );
 }

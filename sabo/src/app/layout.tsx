@@ -27,10 +27,8 @@ export default function RootLayout({
     >
       <body suppressHydrationWarning={true} className="bg-red-500">
         <Navbar />
-        <main className="2md:mt-[120px] mt-24 w-full max-w-[1440px] bg-white">
-          <div className="mx-auto w-full">
-            {children}
-          </div>
+        <main className="2md:mt-[98px] mt-24 w-full max-w-[1440px] bg-white">
+          <div className="mx-auto w-full">{children}</div>
         </main>
       </body>
     </html>
