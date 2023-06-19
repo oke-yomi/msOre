@@ -3,9 +3,16 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import { AiOutlineCaretDown, AiOutlineCaretUp } from "react-icons/ai";
+import MenuList from "./MenuList";
 
 const ProductLinks = () => {
   const [heading, setHeading] = useState("");
+  const [dropdown, setDropdown] = useState(false);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
+  const handleDropdownClick = (index: number) => {
+    setActiveIndex((prevIndex) => (prevIndex === index ? null : index));
+  };
 
   const links = [
     {
@@ -39,32 +46,29 @@ const ProductLinks = () => {
     <>
       {links.map((link, index) => (
         <div key={index}>
-          <div className="text-left 2md:cursor-pointer group mb-4 2md:mb-0">
-            <h1
-              className={`font-semibold 2md:text-sm text-base py-2 px-5 flex justify-start 2md:justify-between items-center rounded-[30px] w-fit ${
-                link.submenu ? "bg-custom-lightgreen" : "bg-white"
-              }`}
-              onClick={() => {
-                heading !== link.name ? setHeading(link.name) : setHeading("");
-              }}
-            >
-              {link.name}
-
-              {link.submenu && (
+          <div className="text-left 2md:cursor-pointer mb-4 2md:mb-0">
+            {link.submenu ? (
+              <MenuList
+                onClick={() => handleDropdownClick(index)}
+                name={link.name}
+                submenu={link.submenu}
+              >
                 <span className="ml-2 inline">
-                  {heading !== link.name ? (
-                    <AiOutlineCaretDown size={12} color="#4B4B4B" />
-                  ) : (
+                  {activeIndex === index ? (
                     <AiOutlineCaretUp size={12} color="#4B4B4B" />
+                  ) : (
+                    <AiOutlineCaretDown size={12} color="#4B4B4B" />
                   )}
                 </span>
-              )}
-            </h1>
+              </MenuList>
+            ) : (
+              <MenuList name={link.name} submenu={link.submenu} />
+            )}
 
-            {link.submenu && (
+            {link.submenu && activeIndex === index && (
               <div className="">
-                <div className="absolute top-20 hidden group-hover:2md:block hover:2md:block w-full left-0 right-0">
-                  <div className="bg-white p-5 px-8 2md:px-24 flex justify-between items-center flex-wrap">
+                <div className="absolute w-full left-0 right-0 top-20 hidden 2md:block">
+                  <div className="bg-white py-5 px-8 2md:pr-24 2md:pl-0 flex justify-between items-center flex-wrap">
                     <div className="hidden lg:block">
                       <Image
                         src="/images/big-coins.png"
@@ -74,7 +78,7 @@ const ProductLinks = () => {
                       />
                     </div>
 
-                    <div className="flex gap-16 py-16">
+                    <div className="flex gap-[72px]">
                       {link.sublinks?.map((mysublink, index) => (
                         <div key={index} className="w-52">
                           <Image
@@ -102,7 +106,7 @@ const ProductLinks = () => {
           </div>
 
           {/* mobile menus */}
-          <div className={`${heading === link.name ? "2md:hidden" : "hidden"}`}>
+          <div className={`${activeIndex === index ? "2md:hidden" : "hidden"}`}>
             <div className="flex gap-10 py-5 px-5 items-center flex-wrap">
               {link.sublinks?.map((mysublink, index) => (
                 <div key={index} className="w-4/5 max-w-[208px]">
@@ -132,3 +136,28 @@ const ProductLinks = () => {
 };
 
 export default ProductLinks;
+
+{
+  /* 
+    <h1
+      className={`font-semibold 2md:text-sm text-base py-2 px-5 flex justify-start 2md:justify-between items-center rounded-[30px] w-fit cursor-pointer ${
+        link.submenu ? "bg-custom-lightgreen" : "bg-white"
+      }`}
+      onClick={() => handleDropdownClick(index)}
+      onMouseEnter={() => handleMouseEnter(index)}
+      onMouseLeave={handleMouseLeave}
+    >
+      {link.name}
+
+      {
+        <span className="ml-2 inline">
+          {activeIndex === index ? (
+            <AiOutlineCaretUp size={12} color="#4B4B4B" />
+          ) : (
+            <AiOutlineCaretDown size={12} color="#4B4B4B" />
+          )}
+        </span>
+      }
+    </h1> 
+  */
+}

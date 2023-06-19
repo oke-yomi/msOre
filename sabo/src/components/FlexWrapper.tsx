@@ -14,7 +14,7 @@ interface Props {
 
 const FlexWrapper = ({ cardItems }: Props) => {
   return (
-    <div className="flex flex-col 2md:flex-row justify-between items-center gap-12">
+    <div className="flex flex-col 2md:flex-row justify-between items-center gap-32">
       {cardItems.map((card, index) => (
         <div key={index} className="2md:max-w-80 w-full">
           <Image
