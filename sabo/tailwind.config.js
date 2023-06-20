@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["var(--font-general-sans)"],
+      },
       screens: {
         "2md": "830px",
       },

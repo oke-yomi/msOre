@@ -3,9 +3,34 @@ import localFont from "next/font/local";
 
 import Navbar from "@/components/navbar/Navbar";
 
-const myFont = localFont({
-  src: "../../fonts/GeneralSans-Variable.ttf",
-  variable: "--font-generalSans",
+const generalSans = localFont({
+  src: [
+    {
+      path: "../../fonts/GeneralSans-Extralight.otf",
+      weight: "200",
+    },
+    {
+      path: "../../fonts/GeneralSans-Light.otf",
+      weight: "300",
+    },
+    {
+      path: "../../fonts/GeneralSans-Regular.otf",
+      weight: "400",
+    },
+    {
+      path: "../../fonts/GeneralSans-Medium.otf",
+      weight: "500",
+    },
+    {
+      path: "../../fonts/GeneralSans-Semibold.otf",
+      weight: "600",
+    },
+    {
+      path: "../../fonts/GeneralSans-Bold.otf",
+      weight: "700",
+    },
+  ],
+  variable: "--font-general-sans",
 });
 
 export const metadata = {
@@ -21,9 +46,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${myFont.variable} font-sans justify-center items-center flex`}
+      className={`${generalSans.variable} font-sans justify-center items-center flex`}
     >
-      <body suppressHydrationWarning={true} className="bg-red-500">
+      <body suppressHydrationWarning={true} className="">
         <Navbar />
         <main className="w-full max-w-[1440px] bg-white">
           <div className="mx-auto w-full">{children}</div>
