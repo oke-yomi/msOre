@@ -6,8 +6,6 @@ import { AiOutlineCaretDown, AiOutlineCaretUp } from "react-icons/ai";
 import MenuList from "./MenuList";
 
 const ProductLinks = () => {
-  const [heading, setHeading] = useState("");
-  const [dropdown, setDropdown] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const handleDropdownClick = (index: number) => {

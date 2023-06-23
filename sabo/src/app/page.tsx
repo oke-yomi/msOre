@@ -3,15 +3,15 @@
 import Faqs from "@/components/Faqs";
 import FlexWrapper from "@/components/FlexWrapper";
 import Footer from "@/components/Footer";
-import Hero from "@/components/Hero";
+import Hero from "@/components/hero/Hero";
 import Testimonials from "@/components/Testimonials";
 import { SaboDetails, SaboSecurity } from "@/components/data";
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="font-medium">
-      {/* <Hero /> */}
+    <div className="font-medium mt-20 2md:mt-32">
+      <Hero />
 
       <section className="w-full hidden 2md:block">
         <Image
