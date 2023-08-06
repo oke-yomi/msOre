@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Button from "./shared/Button";
 import {
   IoChevronBackCircleOutline,
@@ -10,23 +10,29 @@ import BgSvg from "./shared/BgSvg";
 import Image from "next/image";
 
 const Features = () => {
-  const [currentFeatureIndex, setCurrentFeatureIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const carouselRef = useRef<HTMLDivElement>(null);
 
-  const handleForwardClick = () => {
-    setCurrentFeatureIndex((prevIndex) => (prevIndex === 0 ? 1 : 0));
+  const handleNext = () => {
+    const carouselWidth = carouselRef.current?.offsetWidth;
+    const numFeatures = featuresData.length;
+    setCurrentIndex((curr) => (curr + 1) % numFeatures);
+    carouselRef.current?.scrollTo({
+      left: (carouselWidth || 0) * ((currentIndex + 1) % numFeatures),
+      behavior: "smooth",
+    });
   };
 
-  const currentFeature = featuresData[currentFeatureIndex];
-  const nextFeature = featuresData[currentFeatureIndex === 0 ? 1 : 0];
-
-  const updatedFeaturesData = [
-    {
-      ...currentFeature,
-    },
-    {
-      ...nextFeature,
-    },
-  ];
+  const handlePrev = () => {
+    const carouselWidth = carouselRef.current?.offsetWidth;
+    const numFeatures = featuresData.length;
+    setCurrentIndex((curr) => (curr - 1 + numFeatures) % numFeatures);
+    carouselRef.current?.scrollTo({
+      left:
+        (carouselWidth || 0) * ((currentIndex - 1 + numFeatures) % numFeatures),
+      behavior: "smooth",
+    });
+  };
 
   return (
     <section className="bg-white w-full py-36 overflow-hidden transition-all ease-in-out delay-150">
@@ -45,50 +51,63 @@ const Features = () => {
             <Button />
 
             <div className="hidden 2md:flex items-center mt-16 gap-4">
-              <button className="" onClick={() => handleForwardClick()}>
+              <button className="" onClick={handlePrev}>
                 <IoChevronBackCircleOutline
                   size={63}
-                  color={currentFeatureIndex === 0 ? "#0F242A" : "#6E6D6D"}
+                  color={currentIndex === 0 ? "#0F242A" : "#6E6D6D"}
                 />
               </button>
-              <button
-                className="w-fit h-fit"
-                onClick={() => handleForwardClick()}
-              >
+              <button className="w-fit h-fit" onClick={handleNext}>
                 <IoChevronForwardCircleOutline
                   size={64}
-                  color={currentFeatureIndex === 1 ? "#0F242A" : "#6E6D6D"}
+                  color={currentIndex === 1 ? "#0F242A" : "#6E6D6D"}
                 />
               </button>
             </div>
           </div>
         </div>
 
-        <div className="2md:w-1/2 w-full flex flex-col 2md:flex-row 2md:gap-8 gap-11 transition-all ease-in-out delay-150 items-center 2md:items-start">
-          {updatedFeaturesData.map((feature, index) => (
-            <div
-              key={index}
-              className="rounded-3xl w-[500px] h-[670px] relative transition-all"
-            >
+        <div
+          className="2md:w-1/2 w-full relative overflow-hidden"
+          ref={carouselRef}
+        >
+          <div
+            className="flex flex-col 2md:flex-row 2md:gap-8 gap-11 items-center 2md:items-start"
+            style={{
+              transform: `translateX(-${currentIndex * 500}px)`,
+              transition: "transform 0.5s ease-in-out",
+            }}
+          >
+            {featuresData.map((feature, index) => (
               <div
-                className="relative w-[500px] h-[375px] rounded-t-3xl overflow-hidden"
-                style={{ backgroundColor: feature.bgColor }}
+                key={index}
+                className="rounded-3xl w-[500px] h-[670px] relative transition-all"
               >
-                <BgSvg color={feature.svgColor} />
-              </div>
+                <div
+                  className="relative w-[500px] h-[375px] rounded-t-3xl overflow-hidden"
+                  style={{ backgroundColor: feature.bgColor }}
+                >
+                  <BgSvg color={feature.svgColor} />
+                </div>
 
-              <div className="absolute top-16 left-[110px] right-[110px]">
-                <Image src={feature.ImgSrc} alt={""} width={280} height={590} />
-              </div>
+                <div className="absolute top-16 left-[110px] right-[110px]">
+                  <Image
+                    src={feature.ImgSrc}
+                    alt={""}
+                    width={280}
+                    height={590}
+                  />
+                </div>
 
-              <div className="bg-[#F6F6EC] flex flex-col justify-center items-center rounded-b-3xl pl-[58px] pt-[42px] pb-[94px] pr-[108px] absolute left-0 right-0 z-20">
-                <h4 className="font-semibold text-[28px] text-custom-black mb-6 leading-none tracking-tight">
-                  {feature.heading}
-                </h4>
-                <p className="font-medium text-custom-grey">{feature.body}</p>
+                <div className="bg-[#F6F6EC] flex flex-col justify-center items-center rounded-b-3xl pl-[58px] pt-[42px] pb-[94px] pr-[108px] absolute left-0 right-0 w-[500px] h-[295px] z-20">
+                  <h4 className="font-semibold text-[28px] text-custom-black mb-6 leading-none tracking-tight">
+                    {feature.heading}
+                  </h4>
+                  <p className="font-medium text-custom-grey">{feature.body}</p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

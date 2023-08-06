@@ -14,6 +14,9 @@ module.exports = {
         "2md": "830px",
         "3xl": "1920px",
       },
+      flex: {
+        2: "0 0 0%",
+      },
       colors: {
         "custom-green-500": "#0F242A",
         "custom-green-400": "#1C4550",

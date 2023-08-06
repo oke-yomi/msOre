@@ -47,13 +47,21 @@ const Security = () => {
       {/* testimonials */}
       <section className="bg-[#E6E6CB] 2md:bg-[#F6F6EC]">
         <div className="w-full 2xl:px-64 2md:px-10 px-8 py-[103px] pb-80">
-          <div className="flex items-center 2md:justify-end gap-1">
+          <div className="flex items-center 2md:justify-between gap-24">
+            <div className="hidden 2md:block w-1/2">
+              <Image
+                src={"/images/testimonial.png"}
+                alt={""}
+                width={729}
+                height={489}
+              />
+            </div>
             <div className="2md:w-1/2 w-3/4">
               <h2 className="font-semibold text-custom-black">
                 SOME OF OUR TESTIMONIES
               </h2>
 
-              <div className="mt-4 w-full max-w-xl">
+              <div className="mt-4 w-full">
                 <p className="font-semibold text-custom-black 2md:text-[32px] text-[28px] leading-9 tracking-tight">
                   Receiving my tuition money tuition from home has always been a
                   struggle. It was nice to know Sabo had my back in keeping me

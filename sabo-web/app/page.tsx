@@ -4,6 +4,7 @@ import Converter from "@/components/Converter";
 import Faqs from "@/components/Faqs";
 import Features from "@/components/Features";
 import Footer from "@/components/Footer";
+import MarketList from "@/components/MarketList";
 import Security from "@/components/Security";
 import Button from "@/components/shared/Button";
 import FlexWrapper from "@/components/shared/FlexWrapper";
@@ -11,12 +12,16 @@ import { faqs } from "@/data/faqs";
 import { SaboDetails } from "@/data/saboDetails";
 import Image from "next/image";
 import { BsFillArrowUpRightCircleFill } from "react-icons/bs";
+import {
+  IoChevronBackCircleOutline,
+  IoChevronForwardCircleOutline,
+} from "react-icons/io5";
 
 export default function Home() {
   return (
     <div className="">
       <section className="bg-custom-white w-full justify-center items-center flex">
-        <div className="text-center 2md:max-w-[885px] w-full flex flex-col justify-center items-center pt-9 pb-52 2md:py-44 2xl:px-64 2md:px-10 px-8">
+        <div className="text-center 2md:max-w-[80%] w-full flex flex-col justify-center items-center pt-9 pb-52 2md:py-44 2xl:px-64 2md:px-10 px-8">
           <h3 className="font-bold text-custom-green-500 text-[56px] 2md:text-[88px] leading-none tracking-tight">
             Taking your Finances Global with Sabo
           </h3>
@@ -44,47 +49,7 @@ export default function Home() {
 
       <Features />
 
-      <section className="bg-custom-yellow-500 2xl:px-64 2md:px-10 px-8 2md:py-[186px] py-[89px]">
-        <div className="">
-          <div className="w-full 2md:max-w-[967px]">
-            <h3 className="font-bold text-custom-green-500 text-5xl 2md:text-[80px] leading-none tracking-tight mb-[52px]">
-              Exchange your way with Sabo P2P Marketplace{" "}
-            </h3>
-            <div className="">
-              <p className="font-semibold text-custom-black text-2xl mb-4">
-                Buying international currency
-              </p>
-
-              <p className="text-medium text-custom-grey">
-                With Sabo real-time insights and expert guidance, you can stay
-                on top of your finance and achieve your financial objectives.
-              </p>
-            </div>
-          </div>
-
-          <div className="mt-[472px] w-full 2md:max-w-[733px]">
-            <h3 className="text-custom-black text-4xl 2md:text-[52px] font-bold">
-              Join our Marketlist
-            </h3>
-            <p className="font-medium my-9 2md:mt-7 2md:mb-12 text-custom-green-400 2md:text-xl">
-              A payment platform built by africans for africans in the diaspora
-              facing the challenges of sending money to their loved ones or
-              paying bills back at home.
-            </p>
-
-            <div className="bg-white rounded-[50px] flex justify-between items-center p-2 w-[394px] h-[70px] overflow-hidden gap-2 mb-36">
-              <input
-                type="text"
-                className="placeholder:text-[#787878] font-medium flex-1 outline-none py-[18px] px-6"
-                placeholder="Enter your email address"
-              />
-              <button className="">
-                <BsFillArrowUpRightCircleFill size={54} color="#F35012" />
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <MarketList />
 
       <Security />
 
