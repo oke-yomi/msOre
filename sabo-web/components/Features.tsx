@@ -81,16 +81,16 @@ const Features = () => {
             {featuresData.map((feature, index) => (
               <div
                 key={index}
-                className="rounded-3xl w-[500px] h-[670px] relative transition-all"
+                className="rounded-3xl w-[329px] 2md:w-[500px] h-[670px] relative transition-all"
               >
                 <div
-                  className="relative w-[500px] h-[375px] rounded-t-3xl overflow-hidden"
+                  className="relative h-[375px] rounded-t-3xl overflow-hidden"
                   style={{ backgroundColor: feature.bgColor }}
                 >
                   <BgSvg color={feature.svgColor} />
                 </div>
 
-                <div className="absolute top-16 left-[110px] right-[110px]">
+                <div className="absolute top-20 2md:top-16 left-1/2 transform -translate-x-1/2 ">
                   <Image
                     src={feature.ImgSrc}
                     alt={""}
@@ -99,11 +99,14 @@ const Features = () => {
                   />
                 </div>
 
-                <div className="bg-[#F6F6EC] flex flex-col justify-center items-center rounded-b-3xl pl-[58px] pt-[42px] pb-[94px] pr-[108px] absolute left-0 right-0 w-[500px] h-[295px] z-20">
-                  <h4 className="font-semibold text-[28px] text-custom-black mb-6 leading-none tracking-tight">
-                    {feature.heading}
-                  </h4>
-                  <p className="font-medium text-custom-grey">{feature.body}</p>
+                {/* className="flex flex-col justify-center items-center absolute left-0 right-0 w-[500px]" */}
+                <div className="bg-[#F6F6EC] z-20 relative h-[295px] px-[58px] pt-[42px] pb-[94px] rounded-b-3xl">
+                    <h4 className="font-semibold text-[28px] text-custom-black mb-6 leading-none tracking-tight">
+                      {feature.heading}
+                    </h4>
+                    <p className="font-medium text-custom-grey">
+                      {feature.body}
+                    </p>
                 </div>
               </div>
             ))}

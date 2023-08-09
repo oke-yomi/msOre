@@ -59,7 +59,7 @@ const MarketList = () => {
             bills back at home.
           </p>
 
-          <div className="bg-white rounded-[50px] flex justify-between items-center p-2 w-[394px] h-[70px] overflow-hidden gap-2">
+          <div className="bg-white rounded-[50px] flex justify-between items-center p-2 2md:w-[394px] h-[70px] overflow-hidden gap-2">
             <input
               type="text"
               className="placeholder:text-[#787878] font-medium flex-1 outline-none py-[18px] px-6"

@@ -82,7 +82,7 @@ const Converter = () => {
   return (
     <section className="h-[582px] bg-custom-yellow-300 w-full flex justify-center items-center relative 2xl:px-64 2md:px-10 px-8">
       <div
-        className="w-[504px] h-[438px] absolute rounded-[25px] -top-[88px] p-1"
+        className="h-fit 2md:w-[504px] 2md:h-[438px] absolute rounded-[25px] -top-[88px] p-1"
         style={{
           backgroundImage:
             "repeating-linear-gradient(45deg, #F35012, #F89772 30%)",
