@@ -81,7 +81,7 @@ const Features = () => {
             {featuresData.map((feature, index) => (
               <div
                 key={index}
-                className="rounded-3xl w-[329px] 2md:w-[500px] h-[670px] relative transition-all"
+                className="rounded-3xl w-[329px] 2md:w-[500px] relative transition-all"
               >
                 <div
                   className="relative h-[375px] rounded-t-3xl overflow-hidden"
@@ -100,7 +100,7 @@ const Features = () => {
                 </div>
 
                 {/* className="flex flex-col justify-center items-center absolute left-0 right-0 w-[500px]" */}
-                <div className="bg-[#F6F6EC] z-20 relative h-[295px] px-[58px] pt-[42px] pb-[94px] rounded-b-3xl">
+                <div className="bg-[#F6F6EC] z-20 relative w-[329px] 2md:w-[500px] h-[295px] px-[58px] pt-[42px] pb-[94px] rounded-b-3xl">
                     <h4 className="font-semibold text-[28px] text-custom-black mb-6 leading-none tracking-tight">
                       {feature.heading}
                     </h4>
