@@ -39,6 +39,8 @@ const Converter = () => {
   const [currencyTwo, setCurrencyTwo] = useState("USD");
   const [rates, setRates] = useState(currencyRates);
 
+  let baseFeeNGN = 10.0;
+
   const handleAmountChangeOne = (amountOneStr: string) => {
     const amountOneValue = parseFloat(amountOneStr);
     const rateOne = rates[currencyOne].rate;
@@ -47,8 +49,8 @@ const Converter = () => {
       setAmountTwo(Number((amountOneValue * rateTwo) / rateOne).toFixed(2));
       setAmountOne(amountOneValue);
     } else {
-      setAmountTwo(0);
-      setAmountOne(0);
+      setAmountTwo("0");
+      setAmountOne("0");
     }
   };
 
@@ -60,29 +62,38 @@ const Converter = () => {
       setAmountOne(Number((amountTwoValue * rateOne) / rateTwo).toFixed(2));
       setAmountTwo(amountTwoValue);
     } else {
-      setAmountOne(0);
-      setAmountTwo(0);
+      setAmountOne("0");
+      setAmountTwo("0");
     }
   };
 
   const handleCurrencyChangeOne = (currencyOne: string) => {
     const rateOne = rates[currencyOne].rate;
-    const amountOneNum = Number(amountOne)
+    const amountOneNum = Number(amountOne);
     setAmountTwo((amountOneNum * rates[currencyTwo].rate) / rateOne);
     setCurrencyOne(currencyOne);
   };
 
   const handleCurrencyChangeTwo = (currencyTwo: string) => {
     const rateTwo = rates[currencyTwo].rate;
-    const amountTwoNum = Number(amountTwo)
+    const amountTwoNum = Number(amountTwo);
     setAmountOne((amountTwoNum * rates[currencyOne].rate) / rateTwo);
     setCurrencyTwo(currencyTwo);
+  };
+
+  const calculateFee = (selectedCurrency: string) => {
+    const selectedRate = rates[selectedCurrency].rate;
+
+    if (amountOne == 0) {
+      return (baseFeeNGN = 0);
+    }
+    return (baseFeeNGN * selectedRate).toFixed(2);
   };
 
   return (
     <section className="h-[582px] bg-custom-yellow-300 w-full flex justify-center items-center relative 2xl:px-64 2md:px-10 px-8">
       <div
-        className="h-fit 2md:w-[504px] 2md:h-[438px] absolute rounded-[25px] -top-[88px] p-1"
+        className="min-h-fit w-fit 2md:w-[504px] 2md:h-[438px] absolute rounded-[25px] -top-[88px] p-1"
         style={{
           backgroundImage:
             "repeating-linear-gradient(45deg, #F35012, #F89772 30%)",
@@ -90,18 +101,16 @@ const Converter = () => {
       >
         <div className="w-full h-full bg-custom-white rounded-[25px] px-8 py-7">
           <div className="">
-            <div className="border border-custom-offwhite w-full rounded-[25px] py-[19px] px-[15px]">
-              <CurrencyInput
-                amount={Number(amountOne)}
-                currencyRates={rates}
-                currency={currencyOne}
-                onAmountChange={handleAmountChangeOne}
-                onCurrencyChange={handleCurrencyChangeOne}
-                text="You're sending"
-              />
-            </div>
+            <CurrencyInput
+              amount={Number(amountOne)}
+              currencyRates={rates}
+              currency={currencyOne}
+              onAmountChange={handleAmountChangeOne}
+              onCurrencyChange={handleCurrencyChangeOne}
+              text="You're sending"
+            />
 
-            <div className="border border-custom-offwhite w-full rounded-[25px] py-[19px] px-[15px] mt-4">
+            <div className="mt-4">
               <CurrencyInput
                 text="Recipient gets"
                 amount={Number(amountTwo)}
@@ -115,10 +124,15 @@ const Converter = () => {
             <div className="mt-4">
               <div className="flex justify-between items-center">
                 <p className="py-[10px] px-5 text-custom-green-500 font-semibold bg-[#F1FCC5] rounded-[38px]">
-                  £1 = N1,000.00
+                  {currencyRates[currencyOne].symbol}1 ={" "}
+                  {currencyRates[currencyTwo].symbol}
+                  {(rates[currencyTwo].rate / rates[currencyOne].rate).toFixed(
+                    2
+                  )}
                 </p>
                 <p className="py-[10px] px-5 text-custom-green-500 font-semibold bg-[#DDEFF3] rounded-[38px]">
-                  £1 = N1,000.00
+                  Fee = {currencyRates[currencyOne].symbol}{" "}
+                  {calculateFee(currencyOne)}
                 </p>
               </div>
 
@@ -128,7 +142,10 @@ const Converter = () => {
                 </p>
 
                 <p className="font-semibold text-custom-green-500 text-2xl">
-                  £ 31.00
+                  {currencyRates[currencyOne].symbol}{" "}
+                  {(
+                    Number(amountOne) + Number(calculateFee(currencyOne))
+                  ).toFixed(2)}
                 </p>
               </div>
             </div>
