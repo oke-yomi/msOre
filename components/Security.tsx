@@ -16,7 +16,7 @@ const Security = () => {
         <div className="w-full 2xl:px-64 2md:px-10 px-8 2md:py-[270px] py-[121px]">
           <div className="flex justify-between items-center gap-1">
             <div className="2md:w-1/2 w-full">
-              <h3 className="text-custom-green-500 font-bold text-5xl text-[64px] leading-none tracking-tight">
+              <h3 className="text-custom-green-500 font-bold text-5xl 2md:text-[64px] leading-none tracking-tight">
                 We love to give precedence to your financial security
               </h3>
               <p className="font-medium 2md:text-lg text-sm text-custom-neutral my-8">
@@ -56,7 +56,7 @@ const Security = () => {
                 height={489}
               />
             </div>
-            <div className="2md:w-1/2 w-3/4">
+            <div className="2md:w-1/2">
               <h2 className="font-semibold text-custom-black">
                 SOME OF OUR TESTIMONIES
               </h2>

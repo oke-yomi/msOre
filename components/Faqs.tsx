@@ -22,8 +22,8 @@ const Faqs = ({ faqs }: AccordionProps) => {
   return (
     <section className="bg-white justify-center items-center flex">
       <div className="w-full 2md:flex 2xl:px-64 2md:px-10 px-8 2md:py-[270px] py-[156px] justify-between items-center">
-        <div className="2md:w-1/2 w-full">
-          <h3 className="font-bold text-custom-black text-[52px] leading-none tracking-tight 2md:w-[483px] w-full">
+        <div className="2md:w-1/2">
+          <h3 className="font-bold text-custom-black text-5xl 2md:text-[52px] leading-none tracking-tight 2md:w-[483px] w-full">
             You’ve got some money questions?; we’ve got them answered.
           </h3>
           <p className="font-medium text-xl text-custom-neutral mt-4">

@@ -38,7 +38,7 @@ export default function Home() {
 
       <section className="bg-white w-full justify-center items-center flex 2md:py-[186px] py-[71px]">
         <div className="2xl:px-64 2md:px-10 px-8">
-          <p className="2md:mb-20 mb-24 2md:text-[32px] text-2xl leading-10 font-medium w-2/3">
+          <p className="2md:mb-20 mb-24 2md:text-[32px] text-2xl leading-10 font-medium 2md:w-2/3">
             A payment platform built by africans for africans in the diaspora
             facing the challenges of sending money to their loved ones or paying
             bills back at home.

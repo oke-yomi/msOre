@@ -39,7 +39,7 @@ const Features = () => {
       <div className="2md:flex gap-5 items-center justify-between px-8 2md:px-0">
         <div className="2md:w-1/2 w-full 2md:px-5 2xl:px-32 flex justify-center items-center">
           <div className="w-full 2md:max-w-xl mb-[72px] 2md:mb-0">
-            <h3 className="text-custom-black font-bold text-[68px] leading-none tracking-tight">
+            <h3 className="text-custom-black font-bold text-5xl 2md:text-[68px] leading-none tracking-tight">
               Going beyond just remittances
             </h3>
             <p className="font-medium text-lg text-custom-neutral mt-8 mb-10">
