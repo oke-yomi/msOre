@@ -3,6 +3,8 @@ import "./globals.css";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 
+import ReactQueryProvider from "./ReactQueryProvider";
+
 const generalSans = localFont({
   src: [
     {
@@ -38,24 +40,26 @@ interface Props {
 }
 
 export const metadata: Metadata = {
-  title: "Sabo Website",
+  title: "Ms Ore",
   description: "",
 };
 
 export default function RootLayout({ children }: Props) {
   return (
-    <html lang="en">
-      <body
-        className={`${generalSans.variable} font-sans`}
-        suppressHydrationWarning={true}
-      >
-        <main className="w-full flex justify-center items-center">
-          <div className="w-full mx-auto max-w-screen-3xl">
-            <Navbar />
-            {children}
-          </div>
-        </main>
-      </body>
-    </html>
+    <ReactQueryProvider>
+      <html lang="en">
+        <body
+          className={`${generalSans.variable} font-sans`}
+          suppressHydrationWarning={true}
+        >
+          <main className="w-full flex justify-center items-center">
+            <div className="w-full mx-auto max-w-screen-2xl">
+              <Navbar />
+              <div className="w-full px-8 text-custom-black">{children}</div>
+            </div>
+          </main>
+        </body>
+      </html>
+    </ReactQueryProvider>
   );
 }
