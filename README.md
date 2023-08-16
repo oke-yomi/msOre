@@ -17,6 +17,13 @@
 - To solve this, I figured since I had done a data fetch using react-query for the recipes to show my use of working with APIs, I decided to create a data and just populate the page.
 - However, I ensured the website still requests for your location which is supposed to be the point, using your location to fetch the restaurants
 
+### Technologies Used
+
+- [Nextjs 13](https://nextjs.org/): core javascript framework
+- [Tailwind CSS](https://tailwindcss.com/): a utility-first CSS framework
+- [Framer Motion](https://www.framer.com/motion/): an animation library for React
+- [Edamam](https://www.edamam.com/): aa Nutritional API for the recipes
+
 
 ## Getting Started
 
