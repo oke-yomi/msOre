@@ -62,10 +62,12 @@ const Recipes = () => {
   };
 
   if (isError) {
+    const errorMessage = (error as Error).message;
+
     return (
       <div className="w-full h-full items-center justify-center text-center">
         <p className="font-semibold text-5xl">Error!!! Try again Later</p>
-        <p className="font-semibold text-5xl">{error.message}</p>
+        <p className="font-semibold text-5xl">{errorMessage}</p>
       </div>
     );
   }
