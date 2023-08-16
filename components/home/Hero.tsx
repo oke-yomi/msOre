@@ -31,7 +31,6 @@ const Hero = () => {
                 <Link
                   href={"/recipes"}
                   className="border-none bg-custom-green-400 px-3 py-2 rounded-lg text-custom-white cursor-pointer shadow-md transition ease-in-out hover:translate-y-1 hover:scale-95 delay-150"
-                  target="_blank"
                 >
                   View recipes
                 </Link>
@@ -39,7 +38,6 @@ const Hero = () => {
                 <Link
                   href={"/restaurants"}
                   className="border-none text-custom-white underline cursor-pointer transition ease-in-out hover:translate-x-1 delay-150"
-                  target="_blank"
                 >
                   Discover restaurants
                 </Link>

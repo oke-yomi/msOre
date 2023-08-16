@@ -50,7 +50,7 @@ const getQueryRecipes = async ({ queryKey }: { queryKey: string[] }) => {
 const Recipes = () => {
   const [searchText, setSearchText] = useState<string>("jollof");
 
-  const { data, isLoading, isError } = useQuery({
+  const { data, isLoading, isError, error } = useQuery({
     queryKey: ["recipeList", searchText],
     queryFn: getQueryRecipes,
     enabled: !!searchText,
@@ -65,6 +65,7 @@ const Recipes = () => {
     return (
       <div className="w-full h-full items-center justify-center text-center">
         <p className="font-semibold text-5xl">Error!!! Try again Later</p>
+        <p className="font-semibold text-5xl">{error.message}</p>
       </div>
     );
   }
